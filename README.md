@@ -1,15 +1,15 @@
 # Cadito-Api
 Api with MongoDB + Node.js for Store 
 
-#Steps for Setup
+# Steps for Setup
 
-##Install package with follow command
+## Install package with follow command
 
 ```
 npm install
 ```
 
-##Run 
+## Run 
 ```
 npm start
 ```
