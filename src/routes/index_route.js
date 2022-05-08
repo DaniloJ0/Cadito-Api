@@ -1,7 +1,6 @@
-const express = require('express')
+const {Router} = require('express')
 
-const router = express.Router();
-
+const router = Router();
 
 router.get('/', (_req, res) => {
   res.json({ message: 'First Steps' });
