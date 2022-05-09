@@ -30,7 +30,7 @@ const GetReviews = async (req, res) => {
       const userReviews = await Review.find({ user_id });
       return res.status(200).json(userReviews);
     }
-    return res.status(400).json({ message: 'Missing product_id or user_id' });
+    return res.status(400).json({ message: 'Enter product_id or user_id' });
   } catch (error) {
     return res.status(500).json({ error });
   }
