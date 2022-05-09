@@ -19,7 +19,7 @@ const CreatePost = async (req, res) => {
     });
     return res.status(201).json(post);
   } catch (error) {
-    return console.log(error) //res.status(500).json({ error });
+    return res.status(500).json({ error });
   }
 };
 
@@ -35,7 +35,7 @@ const GetPosts = async (req, res) => {
       const userPosts = await Post.find({ owner_id: user_id });
       return res.status(200).json(userPosts);
     }
-    return res.status(400).json({ message: 'Missing user_id or post_id' });
+    return res.status(400).json({ message: 'Enter user_id or post_id' });
   } catch (error) {
     return res.status(500).json({ error });
   }

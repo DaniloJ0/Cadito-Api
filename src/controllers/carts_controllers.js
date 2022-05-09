@@ -33,10 +33,16 @@ const AddCart = async (req, res) => {
   
  const RemoveCart = async (req, res) => {
     const{ item_id } = req.query;
-    cartModel.deleteOne({_id: getId(item_id)}, (err, docs) => {
-        if(err) res.send({error: err}, 404);
-        res.send(docs);
-    });
+    try {
+      const cart = await Cart.findOneAndUpdate(
+        { 'items._id': item_id },
+        { $pull: { items: { _id: item_id } } },
+        { new: true },
+      );
+      return res.status(200).json(cart);
+    } catch (error) {
+      return res.status(500).json({ error });
+    }
   };
   
 const PurchaseCart = async (req, res) => {
